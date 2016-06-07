@@ -12,6 +12,8 @@ CAMEL_DIR = join(expanduser('~'), 'camel_splitter')
 
 
 def camel_to_spaces(file_name):
+    if " " in file_name:
+        return file_name
     return ''.join(map(lambda x: x if not x.isupper() else " "+x, file_name))
 
 
