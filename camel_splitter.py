@@ -14,7 +14,10 @@ CAMEL_DIR = join(expanduser('~'), 'camel_splitter')
 def camel_to_spaces(file_name):
     if " " in file_name:
         return file_name
-    return ''.join(map(lambda x: x if not x.isupper() else " "+x, file_name))
+    new_filename = ''.join(map(lambda x: x if not x.isupper() else " "+x, file_name))
+    if new_filename.startswith(' '):
+        new_filename = new_filename[1:]
+    return new_filename
 
 
 def do_conversion():
